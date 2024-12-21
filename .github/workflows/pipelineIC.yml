@@ -1,14 +1,1 @@
-name: workflow
-on:
-  push:
-    branches:
-      - main
 
-jobs:
-  scripts:
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: hola mundo
-        run: |
-          echo 'hola mundo'
