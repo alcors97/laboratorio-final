@@ -2,7 +2,7 @@ name: workflow
 on:
   push:
     branches:
-      - main
+      - segunda-rama
 
 jobs:
   scripts:
