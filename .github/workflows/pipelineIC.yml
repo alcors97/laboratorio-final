@@ -29,4 +29,4 @@ jobs:
 
       - name: deploy dsr
         run: |
-          echo 'deploy dsr
+          echo 'deploy dsr'
