@@ -5,10 +5,28 @@ on:
       - segunda-rama
 
 jobs:
-  scripts:
+  build:
     runs-on: ubuntu-latest
     steps:
 
-      - name: hola mundo
+      - name: aqui compila
         run: |
-          echo 'hola mundo'
+          echo 'aqui compila'
+
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: testing
+        run: |
+          echo 'testing'
+
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: deploy dsr
+        run: |
+          echo 'deploy dsr
