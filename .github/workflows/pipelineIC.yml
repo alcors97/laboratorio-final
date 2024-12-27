@@ -5,28 +5,12 @@ on:
       - segunda-rama
 
 jobs:
-  build:
+  sast:
     runs-on: ubuntu-latest
     steps:
 
-      - name: aqui compila
-        run: |
-          echo 'aqui compila'
-
-  
-  test:
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: testing
-        run: |
-          echo 'testing'
-
-  
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: deploy dsr
-        run: |
-          echo 'deploy dsr'
+    - name: set up JDK 17
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+        distribution: 'adopt'
