@@ -29,6 +29,16 @@ jobs:
         run: | 
           if [ -f "package.json" ]; then
             echo "encontro el archivo"
+            echo "verificando configuracion del plugin sonar"
+            if ! grep -q 'id "org.sonarqube"  version "3.3"' package.json; then
+              sed -i '/id \'java\'/a \ \ \ \ id \'org.sonarqube\' version \'3.3\'' package.json
+              echo "plugin de sonarcloud añadido a package.json"
+
+          else
+            echo "plugin de sonarcloud ya esta configurado en package.json"
+          fi
+
+
           else
             echo "no se encontro archivo package.json"
             exit 1
