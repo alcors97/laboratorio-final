@@ -22,25 +22,25 @@ jobs:
       - name: set environment variables
         run: echo "branch_name=${{ github.ref_name }}" >> $GITHUB_ENV
 
-      - name: validate and configure package.json
+      - name: validate and configure package-lock.json
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
         run: | 
-          if [ -f "package.json" ]; then
+          if [ -f "package-lock.json" ]; then
             echo "encontro el archivo"
             echo "verificando configuracion del plugin sonar"
-            if ! grep -q 'id "org.sonarqube"  version "3.3"' package.json; then
-              sed -i '/id \'java\'/a \ \ \ \ id \'org.sonarqube\' version \'3.3\'' package.json
-              echo "plugin de sonarcloud añadido a package.json"
+            if ! grep -q 'id "org.sonarqube"  version "3.3"' package-lock.json; then
+              sed -i '/id \'java\'/a \ \ \ \ id \'org.sonarqube\' version \'3.3\'' package-lock.json
+              echo "plugin de sonarcloud añadido a package-lock.json"
 
           else
-            echo "plugin de sonarcloud ya esta configurado en package.json"
+            echo "plugin de sonarcloud ya esta configurado en package-lock.json"
           fi
 
 
           else
-            echo "no se encontro archivo package.json"
+            echo "no se encontro archivo package-lock.json"
             exit 1
           fi
 
