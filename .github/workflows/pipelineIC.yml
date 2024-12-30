@@ -21,8 +21,8 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
         args:
-            -Dsonar.projectKey="Laboratorio-Final-DevSecOps_Laboratorio-N-R"
-            -Dsonar.organization="laboratorio-final-devsecops"
+            -Dsonar.projectKey="alcors97_laboratorio-final"
+            -Dsonar.organization="labo-final"
             # Comma-separated paths to directories containing main source files.
             #-Dsonar.sources= # optional, default is project base directory
             # Comma-separated paths to directories containing test source files.
