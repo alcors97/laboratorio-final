@@ -58,4 +58,4 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: Depcheck Report
-        path: ./reports
+        path: ./reports        
