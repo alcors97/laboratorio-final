@@ -60,6 +60,17 @@ jobs:
         name: Depcheck Report
         path: ./reports
 
+    - name: Upload Test Result
+      uses: actions/upload-artifact@master
+      with:
+        name: Depcheck Report
+        path: ./reports
+      
+    - name: Upload JAR
+      uses: actions/upload-artifact@master
+      with:
+          name: JAR
+          path: ${github.workspace}    
 
 
   dockerbuild:
