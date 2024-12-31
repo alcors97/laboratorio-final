@@ -54,26 +54,6 @@ jobs:
           --failOnCVSS 7
           --enableRetired
 
-    
-    - name: Dependency Check
-      uses: dependency-check/Dependency-Check_Action@1.1.0
-      env:
-        JAVA_HOME: /opt/jdk
-      id: depcheck
-      with:
-          project: '${{ github.event.repository.name }}'
-          format: 'HTML'
-          path: './reports'
-          args: >
-            --out ./reports
-            --failOnCVSS 7
-            --enableRetired
-        
-        
-
-
-
-
     - name: Upload Test Result
       uses: actions/upload-artifact@master
       with:
