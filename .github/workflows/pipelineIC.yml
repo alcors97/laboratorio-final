@@ -59,6 +59,7 @@ jobs:
 
 
   build-docker-image:
+    needs: SCA
     runs-on: ubuntu-latest
     steps:
       # Checkout del repositorio
