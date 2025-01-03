@@ -31,6 +31,16 @@ jobs:
             #-Dsonar.verbose= # optional, default is false
           # When you need the analysis to take place in a directory other than the one from which it was launched, default is .
         projectBaseDir: .
+
+    - name: Verificar Quality Gate de SonarCloud
+      run: |
+          STATUS=$(curl -s -u "${{ secrets.SONAR_TOKEN }}:" "https://sonarcloud.io/api/qualitygates/project_status?projectKey=alcors97_laboratorio-final" | jq -r .projectStatus.status)
+          if [ "$STATUS" != "OK" ]; then
+            echo "Quality Gate failed: $STATUS"
+            exit 1
+          fi
+      env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    
   
   SCA:
     needs: SAST
@@ -70,5 +80,9 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t security-analysis .
+
+
+  
+
 
  
